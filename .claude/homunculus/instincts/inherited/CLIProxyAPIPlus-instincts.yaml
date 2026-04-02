@@ -1,0 +1,641 @@
+# Instincts generated from https://github.com/EtAorangE/CLIProxyAPIPlus
+# Generated: 2026-04-02T03:48:25.854Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: CLIProxyAPIPlus-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Commit Length
+
+## Action
+
+Write moderate-length commit messages (~57 characters)
+
+## Evidence
+
+- Average commit message length: 57 chars
+- Based on 200 commits
+
+---
+id: CLIProxyAPIPlus-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: CLIProxyAPIPlus-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: CLIProxyAPIPlus-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: CLIProxyAPIPlus-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: CLIProxyAPIPlus-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Test Naming
+
+## Action
+
+Name test files using the pattern: *_test.go
+
+## Evidence
+
+- File pattern: *_test.go
+- Consistent across test files
+
+---
+id: CLIProxyAPIPlus-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~8x per month
+- Files: **/*.test.*, **/api/**
+
+---
+id: CLIProxyAPIPlus-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: src/**/*
+
+---
+id: CLIProxyAPIPlus-workflow-add-or-update-model-in-registry
+trigger: "when doing add or update model in registry"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Workflow Add Or Update Model In Registry
+
+## Action
+
+Follow the add-or-update-model-in-registry workflow:
+1. Edit internal/registry/model_definitions.go to add or update model definition.
+2. Update or add tests in internal/registry/model_definitions_test.go.
+3. If endpoint routing is affected, update sdk/api/handlers/openai/endpoint_compat.go.
+4. Update or add tests in sdk/api/handlers/openai/endpoint_compat_test.go.
+5. If executor logic is affected, update internal/runtime/executor/github_copilot_executor.go and its tests.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: internal/registry/model_definitions.go, internal/registry/model_definitions_test.go, sdk/api/handlers/openai/endpoint_compat.go
+
+---
+id: CLIProxyAPIPlus-workflow-codex-continuity-or-cache-fix
+trigger: "when doing codex continuity or cache fix"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Workflow Codex Continuity Or Cache Fix
+
+## Action
+
+Follow the codex-continuity-or-cache-fix workflow:
+1. Edit internal/runtime/executor/codex_continuity.go for continuity logic.
+2. Edit internal/runtime/executor/codex_executor.go for main executor changes.
+3. Update or add tests in internal/runtime/executor/codex_executor_cache_test.go.
+4. If websockets are affected, update internal/runtime/executor/codex_websockets_executor.go and its test.
+5. If API handler logic is affected, update sdk/api/handlers/handlers.go.
+6. If affinity or conductor logic is affected, update sdk/cliproxy/auth/conductor.go and its tests.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: internal/runtime/executor/codex_continuity.go, internal/runtime/executor/codex_executor.go, internal/runtime/executor/codex_executor_cache_test.go
+
+---
+id: CLIProxyAPIPlus-workflow-add-or-update-readme-sponsorship-or-links
+trigger: "when doing add or update readme sponsorship or links"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Workflow Add Or Update Readme Sponsorship Or Links
+
+## Action
+
+Follow the add-or-update-readme-sponsorship-or-links workflow:
+1. Edit README.md, README_CN.md, and README_JA.md to update sponsorship or links.
+2. If needed, add or update image assets (e.g., assets/bmoplus.png, assets/lingtrue.png).
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: README.md, README_CN.md, README_JA.md
+
+---
+id: CLIProxyAPIPlus-workflow-clarify-provider-specific-routing-or-paths-in-docs
+trigger: "when doing clarify provider specific routing or paths in docs"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Workflow Clarify Provider Specific Routing Or Paths In Docs
+
+## Action
+
+Follow the clarify-provider-specific-routing-or-paths-in-docs workflow:
+1. Edit README.md, README_CN.md, and README_JA.md for documentation wording.
+2. Edit config.example.yaml if configuration examples need clarification.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: README.md, README_CN.md, README_JA.md
+
+---
+id: CLIProxyAPIPlus-workflow-cursor-provider-feature-development
+trigger: "when doing cursor provider feature development"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Workflow Cursor Provider Feature Development
+
+## Action
+
+Follow the cursor-provider-feature-development workflow:
+1. Edit or add files under internal/auth/cursor/ (filename.go, oauth.go, proto/*).
+2. Edit internal/runtime/executor/cursor_executor.go for executor logic.
+3. Edit internal/api/handlers/management/auth_files.go for management API.
+4. Edit sdk/auth/cursor.go for SDK integration.
+5. Edit internal/api/server.go if new routes are added.
+6. Edit internal/cmd/cursor_login.go for CLI changes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: internal/auth/cursor/filename.go, internal/auth/cursor/oauth.go, internal/auth/cursor/proto/connect.go
+
+---
+id: CLIProxyAPIPlus-workflow-fix-or-improve-codex-executor-error-handling
+trigger: "when doing fix or improve codex executor error handling"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/EtAorangE/CLIProxyAPIPlus
+---
+
+# CLIProxyAPIPlus Workflow Fix Or Improve Codex Executor Error Handling
+
+## Action
+
+Follow the fix-or-improve-codex-executor-error-handling workflow:
+1. Edit internal/runtime/executor/codex_executor.go for error handling or parameter logic.
+2. If needed, update internal/runtime/executor/codex_executor_retry_test.go.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: internal/runtime/executor/codex_executor.go, internal/runtime/executor/codex_executor_retry_test.go
+
+---
+id: cliproxyapiplus-instinct-file-naming
+trigger: "When creating or renaming files"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct File Naming
+
+## Action
+
+Use snake_case for file names
+
+## Evidence
+
+- Pattern in files: internal/registry/model_definitions.go, internal/runtime/executor/codex_executor.go
+
+---
+id: cliproxyapiplus-instinct-function-naming
+trigger: "When defining functions"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in Go codebase
+- Go conventions and file examples
+
+---
+id: cliproxyapiplus-instinct-constant-naming
+trigger: "When declaring constants"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in Go codebase
+- Go conventions and file examples
+
+---
+id: cliproxyapiplus-instinct-class-naming
+trigger: "When defining structs or classes"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Class Naming
+
+## Action
+
+Use PascalCase for struct or class names
+
+## Evidence
+
+- Pattern in Go codebase
+- Go conventions and file examples
+
+---
+id: cliproxyapiplus-instinct-import-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Import Style
+
+## Action
+
+Use relative imports
+
+## Evidence
+
+- Pattern in Go codebase
+- Go import statements
+
+---
+id: cliproxyapiplus-instinct-export-style
+trigger: "When exporting functions or types"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Export Style
+
+## Action
+
+Use named exports (export only what is needed)
+
+## Evidence
+
+- Pattern in Go codebase
+- Go export conventions
+
+---
+id: cliproxyapiplus-instinct-test-file-pattern
+trigger: "When writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Test File Pattern
+
+## Action
+
+Name test files with *_test.go suffix
+
+## Evidence
+
+- Pattern in files: internal/registry/model_definitions_test.go, internal/runtime/executor/codex_executor_cache_test.go
+
+---
+id: cliproxyapiplus-instinct-unit-test-type
+trigger: "When writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Unit Test Type
+
+## Action
+
+Write unit tests for new or changed logic
+
+## Evidence
+
+- Testing pattern: testTypes includes 'unit'
+- Presence of *_test.go files
+
+---
+id: cliproxyapiplus-instinct-commit-prefix
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Commit Prefix
+
+## Action
+
+Start commit message with a conventional prefix (fix, feat, docs, refactor, style, chore)
+
+## Evidence
+
+- Seen in commits: feat(registry): add GitHub Copilot gemini-3.1-pro-preview model
+- fix(openai): route copilot Gemini preview models to chat endpoint
+
+---
+id: cliproxyapiplus-instinct-commit-format
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Commit Format
+
+## Action
+
+Use format: <type>(<scope>): <short description>
+
+## Evidence
+
+- Seen in commits: fix(openai): route copilot Gemini preview models to chat endpoint
+- docs(readme): update LingtrueAPI link in all README translations
+
+---
+id: cliproxyapiplus-instinct-add-model-workflow
+trigger: "When adding or updating a model in the registry"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Add Model Workflow
+
+## Action
+
+Edit internal/registry/model_definitions.go, update/add tests, and update endpoint routing and executor logic if needed
+
+## Evidence
+
+- Workflow: add-or-update-model-in-registry
+- Example commits and files in workflow
+
+---
+id: cliproxyapiplus-instinct-codex-cache-fix-workflow
+trigger: "When fixing or improving Codex prompt cache continuity or affinity"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Codex Cache Fix Workflow
+
+## Action
+
+Edit codex_continuity.go, codex_executor.go, update/add tests, and update related executor/handler/conductor files if needed
+
+## Evidence
+
+- Workflow: codex-continuity-or-cache-fix
+- Example commits and files in workflow
+
+---
+id: cliproxyapiplus-instinct-update-readme-sponsor-workflow
+trigger: "When updating sponsorship banners, links, or formatting in README files"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Update Readme Sponsor Workflow
+
+## Action
+
+Edit all README translations and update/add image assets as needed
+
+## Evidence
+
+- Workflow: add-or-update-readme-sponsorship-or-links
+- Example commits and files in workflow
+
+---
+id: cliproxyapiplus-instinct-clarify-provider-docs-workflow
+trigger: "When clarifying provider-specific routing or path limitations in docs"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Clarify Provider Docs Workflow
+
+## Action
+
+Edit all README translations and config.example.yaml for documentation wording
+
+## Evidence
+
+- Workflow: clarify-provider-specific-routing-or-paths-in-docs
+- Example commits and files in workflow
+
+---
+id: cliproxyapiplus-instinct-cursor-feature-workflow
+trigger: "When implementing or improving Cursor provider features"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Cursor Feature Workflow
+
+## Action
+
+Edit/add files under internal/auth/cursor/, update executor, management API, SDK, server, and CLI as needed
+
+## Evidence
+
+- Workflow: cursor-provider-feature-development
+- Example commits and files in workflow
+
+---
+id: cliproxyapiplus-instinct-codex-error-fix-workflow
+trigger: "When fixing Codex executor error handling or parameter compatibility"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: EtAorangE/CLIProxyAPIPlus
+---
+
+# Cliproxyapiplus Instinct Codex Error Fix Workflow
+
+## Action
+
+Edit codex_executor.go and update codex_executor_retry_test.go if needed
+
+## Evidence
+
+- Workflow: fix-or-improve-codex-executor-error-handling
+- Example commits and files in workflow
+
