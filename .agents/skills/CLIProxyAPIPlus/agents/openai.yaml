@@ -1,0 +1,6 @@
+interface:
+  display_name: "CLIProxyAPIPlus"
+  short_description: "Repo-specific patterns and workflows for CLIProxyAPIPlus"
+  default_prompt: "Use the CLIProxyAPIPlus repo skill to follow existing architecture, testing, and workflow conventions."
+policy:
+  allow_implicit_invocation: true
